@@ -19,7 +19,7 @@ jobs:
           sudo docker info
       - name: Prune all docker images and containers
         run: |
-          sudo docker stop $(docker ps -a)
+          sudo docker stop $(docker ps)
           sudo docker prune -a -f
       - name: Docker image creation
         run: | 
