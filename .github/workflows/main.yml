@@ -19,8 +19,16 @@ jobs:
           sudo docker info
       - name: Prune all docker images and containers
         run: |
-          sudo docker stop $(docker ps)
-          sudo docker prune -a -f
+          if [ "$(docker ps -q)" ]; then
+            docker stop $(docker ps -q)
+          fi
+          if [ "$(docker ps -aq)" ]; then
+            docker rm $(docker ps -aq)
+          fi
+          if [ "$(docker images -q)" ]; then
+            docker rmi -f $(docker images -q)
+          fi
+          docker system prune -a -f
       - name: Docker image creation
         run: | 
           sudo docker build -t hsp:latest .
