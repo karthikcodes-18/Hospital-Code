@@ -1,0 +1,36 @@
+name: Hospital pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  hsp:
+    runs-on: self-hosted
+    steps:
+      - name: checkout source code
+        uses: actions/chheckout@v4
+
+      - name: Docker Version display
+        run: |
+          sudo docker --version
+          sudo docker info
+      - name: Docker image creation
+        run: | 
+          sudo docker build -t hsp:latest .
+
+      - name: Docker images verification
+        run: |
+          sudo docker images
+
+      - name: Docker Container creation
+        run: |
+          sudo docker run -d -p 5000:5000 hsp:latest
+          
+      - name: Docker Container Verification
+        run: |
+          sudo docker ps -a 
+          
+      
