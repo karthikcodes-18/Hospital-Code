@@ -1,68 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hospital Login</title>
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            background:#f4f4f4;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karthik Hospital - Login</title>
 
-        .container{
-            width:350px;
-            margin:100px auto;
-            background:white;
-            padding:20px;
-            border-radius:8px;
-            box-shadow:0 0 10px rgba(0,0,0,0.2);
-        }
+<style>
 
-        h2{
-            text-align:center;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        input{
-            width:100%;
-            padding:10px;
-            margin:10px 0;
-            box-sizing:border-box;
-        }
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f4c81,#1976d2,#26a69a);
+}
 
-        button{
-            width:100%;
-            padding:10px;
-            background:#007bff;
-            color:white;
-            border:none;
-            cursor:pointer;
-        }
+.container{
+    width:400px;
+    background:#ffffff;
+    border-radius:15px;
+    padding:35px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
 
-        button:hover{
-            background:#0056b3;
-        }
+.logo{
+    width:80px;
+    height:80px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    background:#1976d2;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+}
 
-        .error{
-            color:red;
-            text-align:center;
-        }
-    </style>
+h1{
+    text-align:center;
+    color:#0f4c81;
+    font-size:28px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#777;
+    margin:8px 0 25px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    color:#333;
+    font-weight:600;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#1976d2;
+    outline:none;
+    box-shadow:0 0 8px rgba(25,118,210,.3);
+}
+
+button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:8px;
+    background:#1976d2;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+.error{
+    margin-top:15px;
+    color:#d32f2f;
+    text-align:center;
+    font-weight:bold;
+}
+
+.footer{
+    margin-top:25px;
+    text-align:center;
+    color:#777;
+    font-size:13px;
+}
+
+</style>
+
 </head>
+
 <body>
 
 <div class="container">
-    <h2>Hospital Login</h2>
 
-    <form method="POST">
-        <input type="text" name="username" placeholder="Username" required>
+<div class="logo">
+🏥
+</div>
 
-        <input type="password" name="password" placeholder="Password" required>
+<h1>Karthik Hospital</h1>
+<p class="subtitle">Hospital Management System Login</p>
 
-        <button type="submit">Login</button>
-    </form>
+<form method="POST">
 
-    {% if error %}
-    <p class="error">{{ error }}</p>
-    {% endif %}
+<label>Username</label>
+<input
+    type="text"
+    name="username"
+    placeholder="Enter your username"
+    required
+>
+
+<label>Password</label>
+<input
+    type="password"
+    name="password"
+    placeholder="Enter your password"
+    required
+>
+
+<button type="submit">Login</button>
+
+</form>
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+<div class="footer">
+© 2026 Karthik Hospital. All Rights Reserved.
+</div>
+
 </div>
 
 </body>
